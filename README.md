@@ -9,7 +9,7 @@ In the real world of financial systems, costs are highly asymmetrical. Customer 
 
 ---
 
-## 1.5 The Data Source and Local Feature Classification
+##  The Data Source and Local Feature Classification
 
 **The Dataset**
 The foundational data for this microeconomic simulation was sourced from the **IEEE-CIS Fraud Detection dataset**, originally provided by Vesta Corporation. The dataset contains hundreds of thousands of real-world e-commerce transactions, providing a highly imbalanced, structurally realistic environment to test econometric theories. After standard preprocessing and a rigorous train/test split, the final hold-out validation set evaluated in this study contained roughly 85,000 legitimate transactions and a proportionate subset of confirmed frauds.
@@ -23,7 +23,7 @@ In live financial environments, data must be strictly governed and locally class
 
 ---
 
-## 1.6 Econometric Feature Engineering
+##  Econometric Feature Engineering
 
 To capture true consumer behavior, the raw data required three specific mathematical transformations:
 
@@ -35,7 +35,7 @@ Together, these engineered features successfully transformed static data points 
 
 ---
 
-## 2. The Flaw of the 0.50 Threshold: An Assumption of Symmetrical Costs
+##  The Flaw of the 0.50 Threshold: An Assumption of Symmetrical Costs
 
 When a standard predictive model is deployed out of the box, it relies on a rigid decision boundary: the 0.50 threshold. If the algorithm calculates that a transaction has a 51% probability of being fraudulent, it blocks the card. If the probability is 49%, it approves the transaction. 
 
@@ -51,7 +51,7 @@ The model wasn't failing to detect data patterns; it was failing to understand e
 
 ---
 
-## 3. Bridging ML and Econometrics: The Dynamic BMR Threshold
+##  Bridging ML and Econometrics: The Dynamic BMR Threshold
 
 To fix the structural blindness of the baseline model, the algorithm required a microeconomic cost function. Instead of asking the model, "Is this transaction fraudulent?", I engineered the system to calculate, "What is the financial risk of this classification?"
 
@@ -71,7 +71,7 @@ When the model evaluated transactions using this dynamic $p^*$ threshold, it act
 
 The financial impact was immediate: the total expected loss dropped from the $422,326 baseline down to **$386,406**, generating roughly $36,000 in net savings. 
 
-However, there is no free lunch in econometrics. 
+<img width="940" height="467" alt="image" src="https://github.com/user-attachments/assets/bb5ee61b-4df0-4969-8d0e-eba11617759c" />
 
 
 
@@ -79,7 +79,7 @@ As the visualization illustrates, the 2-Tier BMR system successfully secured the
 
 ---
 
-## 4. The Reality Check: Why Econometrics Demands Calibrated Probabilities
+##  The Reality Check: Why Econometrics Demands Calibrated Probabilities
 
 The dynamic $p^*$ threshold is mathematically sound, but its success relies on a massive underlying assumption: **the algorithm must output the truth.**
 
@@ -95,7 +95,7 @@ When the newly calibrated, highly accurate probabilities collided with the aggre
 
 ---
 
-## 5. Operationalizing the Math: The 3-Tier SMS System
+##  Operationalizing the Math: The 3-Tier SMS System
 
 To save the bank's bottom line without burning the customer base, I designed a **3-Tier Operational Framework** that introduces a low-cost "Grey Zone" intervention. Instead of forcing the model into a binary "Approve vs. Decline" corner, I integrated an SMS Two-Factor Authentication (2FA) tier. 
 
@@ -103,6 +103,7 @@ The logic operates on three tiers:
 1.  **Tier 1: Silent Approval.** If the calibrated probability is below the dynamic $p^*$ risk threshold, the transaction is approved silently. Zero friction.
 2.  **Tier 3: Strict Hard Decline.** If the probability exceeds the standard 0.50 threshold, the model is highly confident it is fraud. The transaction is instantly blocked. 
 3.  **Tier 2: The SMS Grey Zone.** If the probability crosses the hyper-sensitive $p^*$ threshold but has not yet reached the 0.50 mark, the system pauses. Instead of triggering a catastrophic hard decline, the system pings an API to send an SMS verification code to the user's phone at a cost of just **$0.05**. 
+<img width="940" height="399" alt="image" src="https://github.com/user-attachments/assets/34f137c1-9af1-46f4-bee9-ed15b221b11d" />
 
 
 
@@ -111,7 +112,7 @@ The operational impact of this 3-Tier system was massive. As the visualization s
 
 ---
 
-## 6. The Final Impact: Bridging Data Science and Business Reality
+## The Final Impact: Bridging Data Science and Business Reality
 
 The transition from a standard machine learning baseline to a dynamically calibrated, 3-Tier economic system yielded a transformative financial result. 
 
